@@ -5,8 +5,10 @@ defmodule Mix.Tasks.MakeItHappen do
   def run(_args) do
     Application.ensure_all_started(:commanded_json)
 
+    organizer_id = UUID.uuid4()
+
     command = %CommandedJson.Commands.MakeSomethingHappen{
-      organizer: UUID.uuid4(),
+      organizer: organizer_id,
       id: UUID.uuid4(),
       name: "Illegal Rave",
       awesome_level: 8,
@@ -16,7 +18,7 @@ defmodule Mix.Tasks.MakeItHappen do
     CommandedJson.Cqrs.dispatch(command, consistency: :eventual)
 
     command = %CommandedJson.Commands.MakeSomethingHappen{
-      organizer: UUID.uuid4(),
+      organizer: organizer_id,
       id: UUID.uuid4(),
       name: "Beach Day",
       awesome_level: 11,
