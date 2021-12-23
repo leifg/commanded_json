@@ -59,13 +59,16 @@ defmodule Mix.Tasks.MigrateEvents do
       UUID.string_to_binary!(event_id)
     ]
 
+    IO.write("Migrating #{event_id}... ")
+
     {:ok, _} = Postgrex.query(opts[:conn], update_statement(schema), parameters, opts)
 
-    IO.puts("migrated event #{event_id}")
+    IO.puts("Done")
   end
 
   defp migrate(%{event_id: event_id}, _opts) do
-    IO.puts("Skipped event #{event_id}")
+    IO.write("Migrating #{event_id}... ")
+    IO.puts("Skipped")
   end
 
   defp safe_decode(json) when is_bitstring(json), do: Jason.decode!(json)
