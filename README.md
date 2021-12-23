@@ -34,3 +34,16 @@ You can pass in the parameter `raw` to show the pure event data without deserial
 The serializer of this project acts as a dispatcher between `Commanded.Serialization.JsonSerializer` and `EventStore.JsonbSerializer`. It serializes all data to proper jsonb on inserting new events and calls the decoding functionality on deserialization.
 
 Furthermore when having a mix of string and jsonb in your database the deserialization will automatically recognize the format and will call the appropriate serializer.
+
+## Migrate Existing Event Store
+
+**CAUTION: This procedure goes against the principles of event sourcing and might break compliance protocols of your organization. You should be very careful when changing the data of your event store.**
+
+Even though you can switch your serializer after events have already been persisted, there might be good reasons to backfill the existing events.
+
+To convert all events with a string data or metadata field run the following mix task:
+
+
+```shell
+mix migrate_events 
+```

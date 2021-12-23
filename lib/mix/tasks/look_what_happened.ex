@@ -4,7 +4,7 @@ defmodule Mix.Tasks.LookWhatHappened do
   @start_version 0
   @batch_size 10
 
-  @shortdoc "Makes something happen"
+  @shortdoc "Look what happened"
   def run(args) do
     Application.ensure_all_started(:commanded_json)
     # Make Sure all atoms in Struct are loaded
