@@ -22,7 +22,7 @@ defmodule CommandedJson.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:jason, "~> 1.2"},
+      {:jason, "~> 1.3"},
       {:commanded, "~> 1.3"},
       {:commanded_eventstore_adapter, "~> 1.2"},
       {:benchee, "~> 1.0"}
