@@ -14,5 +14,7 @@ defmodule CommandedJson.Serializer do
   def deserialize(term, config) when is_bitstring(term),
     do: JsonSerializer.deserialize(term, config)
 
-  def deserialize(term, config), do: JsonbSerializer.deserialize(term, config)
+  def deserialize(term, config),
+    do:
+      term |> JsonbSerializer.deserialize(config) |> Commanded.Serialization.JsonDecoder.decode()
 end

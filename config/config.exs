@@ -13,8 +13,8 @@ config :commanded_json, CommandedJson.Cqrs,
   registry: :local
 
 config :commanded_json, CommandedJson.EventStore,
-  # serializer: Commanded.Serialization.JsonSerializer,
-  serializer: CommandedJson.Serializer,
+  serializer: Commanded.Serialization.JsonSerializer,
+  # serializer: CommandedJson.Serializer,
   username: "postgres",
   password: "postgres",
   database: "commanded_json_eventstore_dev",
@@ -23,8 +23,8 @@ config :commanded_json, CommandedJson.EventStore,
 
 config :commanded_json, CommandedJson.EventStore,
   column_data_type: "jsonb",
-  # serializer: Commanded.Serialization.JsonSerializer,
-  serializer: CommandedJson.Serializer,
+  serializer: Commanded.Serialization.JsonSerializer,
+  # serializer: CommandedJson.Serializer,
   types: EventStore.PostgresTypes
 
 config :commanded,

@@ -24,7 +24,8 @@ defmodule CommandedJson.MixProject do
     [
       {:jason, "~> 1.2"},
       {:commanded, "~> 1.3"},
-      {:commanded_eventstore_adapter, "~> 1.2"}
+      {:commanded_eventstore_adapter, "~> 1.2"},
+      {:benchee, "~> 1.0"}
     ]
   end
 end
